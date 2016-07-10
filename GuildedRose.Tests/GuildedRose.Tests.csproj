@@ -84,6 +84,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="GoldenMaster\GoldenMasterTest.CompletelyRandomGoldenMaster.approved.json" />
     <None Include="GoldenMaster\GoldenMasterTest.RandomInputKeepsSameResultsAsBefore.approved.json" />
     <None Include="packages.config" />
   </ItemGroup>
