@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace GuildedRose.Console
 {
@@ -47,6 +48,12 @@ namespace GuildedRose.Console
             if (item.Name == "Aged Brie")
             {
                 UpdateAgedBrie(item);
+                return;
+            }
+
+            if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+            {
+                UpdateBackstagePasses(item);
                 return;
             }
 
@@ -100,6 +107,30 @@ namespace GuildedRose.Console
                 {
                     item.Quality = 0;
                 }
+            }
+        }
+
+        private static void UpdateBackstagePasses(Item item)
+        {
+            item.SellIn--;
+
+            if (item.SellIn < 10)
+            {
+                item.Quality++;
+            }
+
+            if (item.SellIn < 5)
+            {
+                item.Quality++;
+            }
+
+            item.Quality++;
+
+            item.Quality = Math.Min(50, item.Quality);
+
+            if (item.SellIn < 0)
+            {
+                item.Quality = 0;
             }
         }
 
