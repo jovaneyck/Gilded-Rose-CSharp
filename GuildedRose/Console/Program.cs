@@ -57,6 +57,13 @@ namespace GuildedRose.Console
                 return;
             }
 
+            if (item.Name == "Sulfuras, Hand of Ragnaros")
+            {
+                UpdateSulfuras(item);
+                return;
+            }
+
+
             if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
             {
                 if (item.Quality > 0 && item.Name != "Sulfuras, Hand of Ragnaros")
@@ -108,6 +115,11 @@ namespace GuildedRose.Console
                     item.Quality = 0;
                 }
             }
+        }
+
+        private static void UpdateSulfuras(Item item)
+        {
+            
         }
 
         private static void UpdateBackstagePasses(Item item)
