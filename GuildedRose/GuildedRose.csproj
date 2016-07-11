@@ -47,7 +47,7 @@
     <Compile Include="Console\BrieRules.cs" />
     <Compile Include="Console\ItemRules.cs" />
     <Compile Include="Console\Program.cs" />
-    <Compile Include="Console\RegularItemRules.cs" />
+    <Compile Include="Console\DefaultItemRules.cs" />
     <Compile Include="Console\SulfurasRules.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

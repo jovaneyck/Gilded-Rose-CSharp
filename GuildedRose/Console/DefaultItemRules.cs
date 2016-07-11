@@ -1,6 +1,6 @@
 namespace GuildedRose.Console
 {
-    public class RegularItemRules : ItemRules
+    public class DefaultItemRules : ItemRules
     {
         public void Update(Item item)
         {

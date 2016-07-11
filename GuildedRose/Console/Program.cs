@@ -1,11 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace GuildedRose.Console
 {
     public class Program
     {
         public IList<Item> Items;
+
+        private readonly Dictionary<string, ItemRules> _specificRulesForItemNamed = 
+            new Dictionary<string, ItemRules>
+            {
+                { "Aged Brie", new BrieRules()},
+                { "Backstage passes to a TAFKAL80ETC concert", new BackstageRules() },
+                { "Sulfuras, Hand of Ragnaros", new SulfurasRules()}
+            };
+
         static void Main(string[] args)
         {
             System.Console.WriteLine("OMGHAI!");
@@ -43,27 +51,20 @@ namespace GuildedRose.Console
             }
         }
 
-        private static void Update(Item item)
+        private void Update(Item item)
         {
-            ItemRules rules;
+            var rules = FindRules(item);
+            rules.Update(item);
+        }
 
-            switch (item.Name)
+        private ItemRules FindRules(Item item)
+        {
+            if (!_specificRulesForItemNamed.ContainsKey(item.Name))
             {
-                case "Aged Brie":
-                    rules = new BrieRules();
-                    break;
-                case "Backstage passes to a TAFKAL80ETC concert":
-                    rules = new BackstageRules();
-                    break;
-                case "Sulfuras, Hand of Ragnaros":
-                    rules = new SulfurasRules();
-                    break;
-                default:
-                    rules = new RegularItemRules();
-                    break;
+                return new DefaultItemRules();
             }
 
-            rules.Update(item);
+            return _specificRulesForItemNamed[item.Name];
         }
     }
 
