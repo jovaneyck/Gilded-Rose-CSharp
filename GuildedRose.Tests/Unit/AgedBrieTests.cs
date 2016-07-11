@@ -54,5 +54,19 @@ namespace GuildedRose.Tests.Unit
 
             Assert.Equal(50, updated.Quality);
         }
+
+        [Fact] //Not in the specs!
+        public void WhenPastSellDate_QualityIncreasesTwiceAsFast()
+        {
+            var item =
+                _fixture
+                    .Build<Item>()
+                    .With(i => i.Name, "Aged Brie")
+                    .With(i => i.Quality, 10)
+                    .With(i => i.SellIn, 0)
+                    .Create();
+
+            Assert.Equal(12, Updater.Update(item).Quality);
+        }
     }
 }
