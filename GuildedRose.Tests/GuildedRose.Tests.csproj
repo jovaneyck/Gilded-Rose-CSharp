@@ -82,6 +82,7 @@
   <ItemGroup>
     <Compile Include="GoldenMaster\GoldenMasterTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Unit\ConjuredItemTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="GoldenMaster\GoldenMasterTest.CompletelyRandomGoldenMaster.approved.json" />

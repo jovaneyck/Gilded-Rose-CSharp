@@ -9,8 +9,8 @@ using Xunit;
 
 namespace GuildedRose.Tests.GoldenMaster
 {
-    [UseReporter(typeof(XUnit2Reporter))]
-    //[UseReporter(typeof(DiffReporter))]
+    //[UseReporter(typeof(XUnit2Reporter))]
+    [UseReporter(typeof(DiffReporter))]
     public class GoldenMasterTest
     {
         [Fact]
