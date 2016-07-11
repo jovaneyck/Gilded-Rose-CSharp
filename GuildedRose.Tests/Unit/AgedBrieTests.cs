@@ -55,7 +55,7 @@ namespace GuildedRose.Tests.Unit
             Assert.Equal(50, updated.Quality);
         }
 
-        [Fact] //Not in the specs!
+        [Fact]
         public void WhenPastSellDate_QualityIncreasesTwiceAsFast()
         {
             var item =
