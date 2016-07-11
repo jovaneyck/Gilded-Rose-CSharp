@@ -57,45 +57,58 @@ namespace GuildedRose.Console
 
                 if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
                 {
-                    if (item.SellIn < 11 && item.Quality < 50)
-                    {
-                        item.Quality = item.Quality + 1;
-                    }
-
-                    if (item.SellIn < 6 && item.Quality < 50)
-                    {
-                        item.Quality = item.Quality + 1;
-                    }
+                    UpdateBackstagePassesQuality(item);
                 }
             }
 
             if (item.Name != "Sulfuras, Hand of Ragnaros")
             {
-                item.SellIn = item.SellIn - 1;
+                UpdateDefaultSellInValue(item);
             }
 
-            if (item.SellIn < 0)
+            if (item.Name == "Aged Brie")
             {
-                if (item.Name != "Aged Brie")
+                UpdateAgedBrieQuality(item);
+            }
+            else
+            {
+                if (item.Name != "Sulfuras, Hand of Ragnaros"
+                    && item.Name != "Backstage passes to a TAFKAL80ETC concert"
+                    && item.Quality > 0
+                    && item.SellIn < 0)
                 {
-                    if (item.Name != "Sulfuras, Hand of Ragnaros"
-                        && item.Name != "Backstage passes to a TAFKAL80ETC concert" 
-                        && item.Quality > 0)
-                    {
-                        item.Quality = item.Quality - 1;
-                    }
-                    else
-                    {
-                        item.Quality = 0;
-                    }
+                    item.Quality = item.Quality - 1;
                 }
-                else
+                else if(item.SellIn < 0)
                 {
-                    if (item.Quality < 50)
-                    {
-                        item.Quality = item.Quality + 1;
-                    }
+                    item.Quality = 0;
                 }
+            }
+        }
+
+        private static void UpdateDefaultSellInValue(Item item)
+        {
+            item.SellIn = item.SellIn - 1;
+        }
+
+        private static void UpdateBackstagePassesQuality(Item item)
+        {
+            if (item.SellIn < 11 && item.Quality < 50)
+            {
+                item.Quality = item.Quality + 1;
+            }
+
+            if (item.SellIn < 6 && item.Quality < 50)
+            {
+                item.Quality = item.Quality + 1;
+            }
+        }
+
+        private static void UpdateAgedBrieQuality(Item item)
+        {
+            if (item.Quality < 50 && item.SellIn < 0)
+            {
+                item.Quality = item.Quality + 1;
             }
         }
     }
