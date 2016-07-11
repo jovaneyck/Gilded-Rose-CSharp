@@ -43,7 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Console\BackstageRules.cs" />
+    <Compile Include="Console\BrieRules.cs" />
     <Compile Include="Console\Program.cs" />
+    <Compile Include="Console\RegularItemRules.cs" />
+    <Compile Include="Console\SulfurasRules.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

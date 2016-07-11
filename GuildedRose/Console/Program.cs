@@ -47,80 +47,23 @@ namespace GuildedRose.Console
         {
             if (item.Name == "Aged Brie")
             {
-                UpdateAgedBrie(item);
+                new BrieRules().Update(item);
                 return;
             }
 
             if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
             {
-                UpdateBackstagePasses(item);
+                new BackstageRules().Update(item);
                 return;
             }
 
             if (item.Name == "Sulfuras, Hand of Ragnaros")
             {
-                UpdateSulfuras(item);
+                new SulfurasRules().Update(item);
                 return;
             }
 
-            UpdateRegularItem(item);
-        }
-
-        private static void UpdateRegularItem(Item item)
-        {
-            item.SellIn--;
-
-            if (item.Quality > 0)
-            {
-                item.Quality--;
-            }
-            if (item.SellIn < 0)
-            {
-                item.Quality--;
-            }
-        }
-
-        private static void UpdateSulfuras(Item item)
-        {
-            
-        }
-
-        private static void UpdateBackstagePasses(Item item)
-        {
-            item.SellIn--;
-
-            if (item.SellIn < 10)
-            {
-                item.Quality++;
-            }
-
-            if (item.SellIn < 5)
-            {
-                item.Quality++;
-            }
-
-            item.Quality++;
-
-            item.Quality = Math.Min(50, item.Quality);
-
-            if (item.SellIn < 0)
-            {
-                item.Quality = 0;
-            }
-        }
-
-        private static void UpdateAgedBrie(Item item)
-        {
-            item.SellIn--;
-
-            if (item.Quality < 50)
-            {
-                item.Quality++;
-            }
-            if (item.SellIn < 0)
-            {
-                item.Quality++;
-            }
+            new RegularItemRules().Item(item);
         }
     }
 
