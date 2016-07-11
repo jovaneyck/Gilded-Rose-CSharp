@@ -2,7 +2,7 @@
 
 namespace GuildedRose.Console
 {
-    public class BackstageRules
+    public class BackstageRules : ItemRules
     {
         public void Update(Item item)
         {

@@ -1,8 +1,8 @@
 namespace GuildedRose.Console
 {
-    public class RegularItemRules
+    public class RegularItemRules : ItemRules
     {
-        public void Item(Item item)
+        public void Update(Item item)
         {
             item.SellIn--;
 

@@ -45,25 +45,25 @@ namespace GuildedRose.Console
 
         private static void Update(Item item)
         {
-            if (item.Name == "Aged Brie")
+            ItemRules rules;
+
+            switch (item.Name)
             {
-                new BrieRules().Update(item);
-                return;
+                case "Aged Brie":
+                    rules = new BrieRules();
+                    break;
+                case "Backstage passes to a TAFKAL80ETC concert":
+                    rules = new BackstageRules();
+                    break;
+                case "Sulfuras, Hand of Ragnaros":
+                    rules = new SulfurasRules();
+                    break;
+                default:
+                    rules = new RegularItemRules();
+                    break;
             }
 
-            if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-            {
-                new BackstageRules().Update(item);
-                return;
-            }
-
-            if (item.Name == "Sulfuras, Hand of Ragnaros")
-            {
-                new SulfurasRules().Update(item);
-                return;
-            }
-
-            new RegularItemRules().Item(item);
+            rules.Update(item);
         }
     }
 
