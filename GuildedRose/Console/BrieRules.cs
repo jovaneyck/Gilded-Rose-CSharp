@@ -6,11 +6,11 @@
         {
             item.SellIn--;
 
-            if (item.Quality < 50)
+            if (item.SellIn < 0)
             {
                 item.Quality++;
             }
-            if (item.SellIn < 0)
+            if (item.Quality < 50)
             {
                 item.Quality++;
             }
