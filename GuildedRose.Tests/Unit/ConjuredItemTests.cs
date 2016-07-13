@@ -6,10 +6,10 @@ namespace GuildedRose.Tests.Unit
 {
     public class ConjuredItemTests
     {
-        //[Fact]//Let's refactor the codebase a bit first
+        [Fact]
         public void AConjuredRegularItemDegradesTwiceAsFast()
         {
-            var conjuredItem = new Item {Name = "Conjured _regular_item_", Quality = 30, SellIn = 5};
+            var conjuredItem = new Item {Name = "Conjured Item", Quality = 30, SellIn = 5};
             var updated = UpdateQuality(conjuredItem);
 
             Assert.Equal(4, updated.SellIn);

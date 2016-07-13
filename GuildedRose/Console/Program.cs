@@ -11,7 +11,8 @@ namespace GuildedRose.Console
             {
                 { "Aged Brie", new BrieRules()},
                 { "Backstage passes to a TAFKAL80ETC concert", new BackstageRules() },
-                { "Sulfuras, Hand of Ragnaros", new SulfurasRules()}
+                { "Sulfuras, Hand of Ragnaros", new SulfurasRules()},
+                { "Conjured Item", new ConjuredRules() }
             };
 
         static void Main(string[] args)
