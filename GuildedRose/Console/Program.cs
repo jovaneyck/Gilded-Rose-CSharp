@@ -47,6 +47,14 @@ namespace GuildedRose.Console
                             Items[i].Quality = Items[i].Quality - 1;
                         }
                     }
+
+                    if (Items[i].Name == "Conjured Item")
+                    {
+                        if (Items[i].Quality > 0)
+                        {
+                            Items[i].Quality = Items[i].Quality - 1;
+                        }
+                    }
                 }
                 else
                 {
