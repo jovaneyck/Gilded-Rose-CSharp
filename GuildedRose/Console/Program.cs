@@ -54,7 +54,12 @@ namespace GuildedRose.Console
 
                     item.SellIn = item.SellIn - 1;
 
-                    break;
+                    if (item.SellIn < 0 && item.Quality < 50)
+                    {
+                        item.Quality = item.Quality + 1;
+                    }
+
+                    return;
                 case "Backstage passes to a TAFKAL80ETC concert":
                     if (item.Quality < 50)
                     {
