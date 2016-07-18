@@ -85,7 +85,12 @@ namespace GuildedRose.Console
 
                     return;
                 case "Sulfuras, Hand of Ragnaros":
-                    break;
+                    if (item.SellIn < 0 && item.Quality < 50)
+                    {
+                        item.Quality = item.Quality + 1;
+                    }
+
+                    return;
                 default:
                     if (item.Quality > 0)
                     {
