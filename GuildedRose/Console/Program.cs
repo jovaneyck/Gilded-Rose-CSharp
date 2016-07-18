@@ -51,6 +51,9 @@ namespace GuildedRose.Console
                     {
                         item.Quality = item.Quality + 1;
                     }
+
+                    item.SellIn = item.SellIn - 1;
+
                     break;
                 case "Backstage passes to a TAFKAL80ETC concert":
                     if (item.Quality < 50)
@@ -67,6 +70,9 @@ namespace GuildedRose.Console
                             item.Quality = item.Quality + 1;
                         }
                     }
+
+                    item.SellIn = item.SellIn - 1;
+
                     break;
                 case "Sulfuras, Hand of Ragnaros":
                     break;
@@ -75,12 +81,10 @@ namespace GuildedRose.Console
                     {
                         item.Quality = item.Quality - 1;
                     }
-                    break;
-            }
 
-            if (item.Name != "Sulfuras, Hand of Ragnaros")
-            {
-                item.SellIn = item.SellIn - 1;
+                    item.SellIn = item.SellIn - 1;
+
+                    break;
             }
 
             if (item.SellIn < 0)
