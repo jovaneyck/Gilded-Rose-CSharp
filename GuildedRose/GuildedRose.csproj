@@ -46,6 +46,7 @@
     <Compile Include="Console\BackstagePassesRules.cs" />
     <Compile Include="Console\BrieRules.cs" />
     <Compile Include="Console\DefaultRules.cs" />
+    <Compile Include="Console\Rules.cs" />
     <Compile Include="Console\Program.cs" />
     <Compile Include="Console\SulfurasRules.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

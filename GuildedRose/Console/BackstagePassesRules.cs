@@ -1,6 +1,6 @@
 ﻿namespace GuildedRose.Console
 {
-    internal class BackstagePassesRules
+    internal class BackstagePassesRules : Rules
     {
         public void Update(Item item)
         {

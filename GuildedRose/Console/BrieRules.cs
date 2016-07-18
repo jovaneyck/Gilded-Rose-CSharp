@@ -1,6 +1,6 @@
 namespace GuildedRose.Console
 {
-    internal class BrieRules
+    internal class BrieRules : Rules
     {
         public void Update(Item item)
         {

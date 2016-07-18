@@ -1,6 +1,6 @@
 ﻿namespace GuildedRose.Console
 {
-    public class SulfurasRules
+    public class SulfurasRules : Rules
     {
         public void Update(Item item)
         {
