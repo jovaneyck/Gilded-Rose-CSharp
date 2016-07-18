@@ -47,57 +47,16 @@ namespace GuildedRose.Console
             switch (item.Name)
             {
                 case "Aged Brie":
-                    if (item.Quality < 50)
-                    {
-                        item.Quality = item.Quality + 1;
-                    }
-
-                    item.SellIn = item.SellIn - 1;
-
-                    if (item.SellIn < 0 && item.Quality < 50)
-                    {
-                        item.Quality = item.Quality + 1;
-                    }
-
+                    new BrieRules().Update(item);
                     return;
                 case "Backstage passes to a TAFKAL80ETC concert":
-                    if (item.Quality < 50)
-                    {
-                        item.Quality = item.Quality + 1;
-
-                        if (item.SellIn < 11 && item.Quality < 50)
-                        {
-                            item.Quality = item.Quality + 1;
-                        }
-
-                        if (item.SellIn < 6 && item.Quality < 50)
-                        {
-                            item.Quality = item.Quality + 1;
-                        }
-                    }
-
-                    item.SellIn = item.SellIn - 1;
-
-                    if (item.SellIn < 0)
-                    {
-                        item.Quality = 0;
-                    }
-
+                    new BackstagePassesRules().Update(item);
                     return;
                 case "Sulfuras, Hand of Ragnaros":
+                    new SulfurasRules().Update(item);
                     return;
                 default:
-                    if (item.Quality > 0)
-                    {
-                        item.Quality = item.Quality - 1;
-                    }
-
-                    item.SellIn = item.SellIn - 1;
-
-                    if (item.SellIn < 0 && item.Quality > 0)
-                    {
-                        item.Quality = item.Quality - 1;
-                    }
+                    new DefaultRules().Update(item);
                     return;
             }
         }
