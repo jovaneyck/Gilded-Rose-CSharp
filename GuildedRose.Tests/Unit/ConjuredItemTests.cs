@@ -6,7 +6,7 @@ namespace GuildedRose.Tests.Unit
 {
     public class ConjuredItemTests
     {
-        [Fact]
+        //[Fact] //Let's refactor a bit first
         public void AConjuredRegularItemDegradesTwiceAsFast()
         {
             var conjuredItem = new Item {Name = "Conjured Item", Quality = 30, SellIn = 5};
