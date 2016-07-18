@@ -44,14 +44,19 @@ namespace GuildedRose.Console
 
         private static void Update(Item item)
         {
-            if (item.Name == "Aged Brie" || item.Name == "Backstage passes to a TAFKAL80ETC concert")
+            switch (item.Name)
             {
-                if (item.Quality < 50)
-                {
-                    item.Quality = item.Quality + 1;
-
-                    if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+                case "Aged Brie":
+                    if (item.Quality < 50)
                     {
+                        item.Quality = item.Quality + 1;
+                    }
+                    break;
+                case "Backstage passes to a TAFKAL80ETC concert":
+                    if (item.Quality < 50)
+                    {
+                        item.Quality = item.Quality + 1;
+
                         if (item.SellIn < 11 && item.Quality < 50)
                         {
                             item.Quality = item.Quality + 1;
@@ -62,14 +67,15 @@ namespace GuildedRose.Console
                             item.Quality = item.Quality + 1;
                         }
                     }
-                }
-            }
-            else
-            {
-                if (item.Quality > 0 && item.Name != "Sulfuras, Hand of Ragnaros")
-                {
-                    item.Quality = item.Quality - 1;
-                }
+                    break;
+                case "Sulfuras, Hand of Ragnaros":
+                    break;
+                default:
+                    if (item.Quality > 0)
+                    {
+                        item.Quality = item.Quality - 1;
+                    }
+                    break;
             }
 
             if (item.Name != "Sulfuras, Hand of Ragnaros")
