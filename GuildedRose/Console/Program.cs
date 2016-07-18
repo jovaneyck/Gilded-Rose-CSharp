@@ -44,24 +44,22 @@ namespace GuildedRose.Console
 
         private static void Update(Item item)
         {
-            Rules rules;
+            RulesFor(item).Update(item);
+        }
+
+        private static Rules RulesFor(Item item)
+        {
             switch (item.Name)
             {
                 case "Aged Brie":
-                    rules = new BrieRules();
-                    break;
+                    return new BrieRules();
                 case "Backstage passes to a TAFKAL80ETC concert":
-                    rules = new BackstagePassesRules();
-                    break;
+                    return new BackstagePassesRules();
                 case "Sulfuras, Hand of Ragnaros":
-                    rules = new SulfurasRules();
-                    break;
+                    return new SulfurasRules();
                 default:
-                    rules = new DefaultRules();
-                    break;
+                    return new DefaultRules();           
             }
-            rules.Update(item);
-
         }
     }
 
