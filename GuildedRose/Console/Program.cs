@@ -57,6 +57,8 @@ namespace GuildedRose.Console
                     return new BackstagePassesRules();
                 case "Sulfuras, Hand of Ragnaros":
                     return new SulfurasRules();
+                case "Conjured Item":
+                    return new ConjuredRules();
                 default:
                     return new DefaultRules();           
             }

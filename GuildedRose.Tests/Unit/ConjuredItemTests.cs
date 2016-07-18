@@ -6,7 +6,7 @@ namespace GuildedRose.Tests.Unit
 {
     public class ConjuredItemTests
     {
-        //[Fact] //Let's refactor a bit first
+        [Fact]
         public void AConjuredRegularItemDegradesTwiceAsFast()
         {
             var conjuredItem = new Item {Name = "Conjured Item", Quality = 30, SellIn = 5};
@@ -14,6 +14,15 @@ namespace GuildedRose.Tests.Unit
 
             Assert.Equal(4, updated.SellIn);
             Assert.Equal(28, updated.Quality);
+        }
+
+        [Fact]
+        public void AConjuredItemPastSellInDegradesFourTimesAsFast()
+        {
+            var conjuredItem = new Item { Name = "Conjured Item", Quality = 24, SellIn = 0 };
+            var updated = UpdateQuality(conjuredItem);
+
+            Assert.Equal(20, updated.Quality);
         }
 
         private Item UpdateQuality(Item item)

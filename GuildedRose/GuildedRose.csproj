@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Console\BackstagePassesRules.cs" />
     <Compile Include="Console\BrieRules.cs" />
+    <Compile Include="Console\ConjuredRules.cs" />
     <Compile Include="Console\DefaultRules.cs" />
     <Compile Include="Console\Rules.cs" />
     <Compile Include="Console\Program.cs" />
