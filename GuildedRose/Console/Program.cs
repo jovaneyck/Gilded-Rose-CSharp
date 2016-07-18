@@ -94,23 +94,11 @@ namespace GuildedRose.Console
 
                     item.SellIn = item.SellIn - 1;
 
-                    break;
-            }
-
-            if (item.SellIn < 0)
-            {
-                if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-                {
-                    item.Quality = 0;
-                }
-                else if (item.Name != "Aged Brie" && item.Quality > 0 && item.Name != "Sulfuras, Hand of Ragnaros")
-                {
-                    item.Quality = item.Quality - 1;
-                }
-                else if (item.Quality < 50)
-                {
-                    item.Quality = item.Quality + 1;
-                }
+                    if (item.SellIn < 0 && item.Quality > 0)
+                    {
+                        item.Quality = item.Quality - 1;
+                    }
+                    return;
             }
         }
     }
